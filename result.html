@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessment Results</title>
+</head>
+<body>
+
+<h1>Assessment Results</h1>
+{% set score = namespace(value=0) %}
+{% for question in questions %}
+<h3>Question {{ loop.index }}: {{ question.text }}</h3>
+<p>Your answer: {{ question[user_answers[question.id]] }}</p>
+<p>Correct answer: {{ question.correct_choice}}</p>
+{% if question[user_answers[question.id]] == question.correct_choice %}
+{% set score.value = score.value + 1 %}
+<p><strong>Your answer is correct!</strong></p>
+{% else %}
+<p><strong> Your answer is incorrect.</strong></p>
+{% endif %}
+<br>
+{% endfor %}
+
+
+
+
+
+
+
+<p>{{rno}}</p>
+<p>Total Score: {{ score.value }}/{{ num_questions }}</p>
+
+
+</body>
+</html>
+
+
+
+

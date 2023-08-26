@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Example</title>
+    
+</head>
+<body>
+
+<form action="/student" method="post">
+	
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    
+    <label for="Reg.No">Register Number:</label>
+    <input type="text" id="rno" name="rno"><br><br>
+    
+    <label for="age">Year:</label>
+    <input type="text" id="year" name="year"><br><br>
+    
+   <label for="subject">Subject:</label>
+    <select name="subject">
+        {% for subject in subjects %}
+        <option value="{{ subject }}">{{ subject }}</option>
+        {% endfor %}
+    </select><br>
+    
+    <input type="submit" value="Submit" id="submit">
+    
+    <a href="/quiz"> Python Quiz</a>
+    <a href="/javaquiz"> Java Quiz</a>
+    <a href="/cquiz"> C Quiz</a>
+
+</form>
+
+<script>
+        
+        document.getElementById('submit').addEventListener('click', function () {
+        const reg=document.getElementById("rno").value
+        localStorage.setItem('student', reg);
+    });
+</script>
+
+</body>
+
+</html>
+

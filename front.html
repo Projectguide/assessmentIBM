@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to the Assessment System</title>
+    <script>
+        function goToNextPage() {
+            var selectedOption = document.querySelector('input[name="option"]:checked').value;
+            if (selectedOption === 'option1') {
+                window.location.href = 'student';
+            }
+            else {
+                window.location.href = 'faculty';
+        }
+       }
+        
+    </script>
+</head>
+<body>
+<h1> Welcome to the Assessment System
+</h1>
+<form action="/student" method="get">
+    <label>
+        <input type="radio" name="option" value="option1"> Student
+    </label><br><br>
+    
+    <label>
+        <input type="radio" name="option" value="option2"> Faculty
+    </label><br><br>
+    
+    <input type="button" value="Submit" onclick="goToNextPage()">
+</form>
+
+</body>
+</html>
+

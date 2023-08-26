@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Mark list</title>
+</head>
+<body>
+
+<h1>Mark list</h1>
+{% for stud in students %}
+<h3>Name {{ loop.index }}: {{ stud.name }}</h3>
+<p>Reg.No:{{ stud.register_number }}</p>
+<p>Mark: {{ stud.marks }}</p>
+
+<br>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessment Questions</title>
+</head>
+<body>
+
+<h1>Assessment Questions</h1>
+
+<form action="/result" method="post" id="form">
+    {% for question in questions %}
+    <fieldset>
+        <legend>{{ question.text }}</legend>
+        <label>
+            <input type="radio" name="question{{ question.id }}" value="1"> {{ question.choice1 }}
+        </label><br>
+        <label>
+            <input type="radio" name="question{{ question.id }}" value="2"> {{ question.choice2 }}
+        </label><br>
+        <label>
+            <input type="radio" name="question{{ question.id }}" value="3"> {{ question.choice3 }}
+        </label><br>
+        <label>
+            <input type="radio" name="question{{ question.id }}" value="4"> {{ question.choice4 }}
+        </label><br>
+    </fieldset>
+    <br>
+    {% endfor %}
+    
+    <input type="submit" id="indexSub" value="Submit">
+</form>
+
+<script>
+    document.getElementById('indexSub').addEventListener('click', function () {
+        const form =document.getElementById("form")
+        var input2 = document.createElement('input');
+        input2.type = 'text';
+        input2.name = "student";
+        input2.value = localStorage.getItem('student');
+        input2.style.visibility = 'hidden';
+        form.appendChild(input2);
+    });
+</script>
+
+</body>
+</html>
+
